@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Porto Bank - Mock</title>
+</head>
+<body>
+  <main>
+    <h1>Porto Bank</h1>
+    <p>Página inicial do banco (mock para CI)</p>
+    <button type="button" name="Área do Cliente">Área do Cliente</button>
+  </main>
+  <script>
+    document.querySelector('button[name="Área do Cliente"]').addEventListener('click', () => {
+      window.location.href = '/login.html';
+    });
+  </script>
+</body>
+</html>

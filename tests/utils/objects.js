@@ -1,15 +1,19 @@
 /**
  * Objetos da interface — Porto Bank (Área do Cliente).
  * Centraliza locators para spec e BDD; use com page do Playwright.
+ * Em CI (GitHub Actions) usa mock local para não depender do site real.
  */
 
 /** @param {import('@playwright/test').Page} page */
 export function urlBank(page) {
+  if (process.env.CI) return '/';
   return 'https://www.portoseguro.com.br/bank';
 }
 
-/** URL da home do cliente (após login) */
-export const urlHomeCliente = 'https://cliente.portoseguro.com.br/home';
+/** URL da home do cliente (após login). Em CI usa mock. */
+export const urlHomeCliente = process.env.CI
+  ? '/home-cliente.html'
+  : 'https://cliente.portoseguro.com.br/home';
 
 /** @param {import('@playwright/test').Page} page */
 export function btnAreaCliente(page) {

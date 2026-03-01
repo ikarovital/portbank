@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Conecte-se - Porto Bank Mock</title>
+</head>
+<body>
+  <h1>Conecte-se via Porto ID</h1>
+  <div id="etapa-cpf">
+    <label>Insira seu CPF ou CNPJ</label>
+    <input type="text" role="textbox" name="Insira seu CPF ou CNPJ" aria-label="Insira seu CPF ou CNPJ" />
+    <button type="button" name="Continuar">Continuar</button>
+  </div>
+  <div id="etapa-senha" style="display: none;">
+    <label>Digite sua senha para acessar</label>
+    <input type="password" role="textbox" name="Digite sua senha para acessar" aria-label="Digite sua senha para acessar" />
+    <button type="button" name="Fazer login">Fazer login</button>
+  </div>
+  <div id="erro" style="display: none;" role="alert">Ops, algo deu errado</div>
+  <main id="main-home" style="display: none;">
+    <p>Conte com nosso cuidado.</p>
+  </main>
+  <script>
+    document.querySelector('button[name="Continuar"]').addEventListener('click', () => {
+      document.getElementById('etapa-cpf').style.display = 'none';
+      document.getElementById('etapa-senha').style.display = 'block';
+    });
+    document.querySelector('button[name="Fazer login"]').addEventListener('click', () => {
+      window.location.href = '/home.html';
+    });
+  </script>
+</body>
+</html>

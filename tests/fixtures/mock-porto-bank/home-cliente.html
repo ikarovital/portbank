@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Cliente - Porto Bank Mock</title>
+</head>
+<body>
+  <header>
+    <button type="button" data-testid="home-header-menu-controller-test-id" aria-label="Menu">Menu</button>
+  </header>
+  <div id="menu-panel" style="display: none;">
+    <button type="button" name="Sair da conta">Sair da conta</button>
+  </div>
+  <div id="modal-logout" style="display: none;">
+    <p>Deseja realmente sair?</p>
+    <button type="button" name="Sim">Sim</button>
+    <button type="button" name="Não">Não</button>
+  </div>
+  <main>
+    <p>Home do cliente (mock).</p>
+  </main>
+  <script>
+    document.querySelector('[data-testid="home-header-menu-controller-test-id"]').addEventListener('click', () => {
+      document.getElementById('menu-panel').style.display = 'block';
+    });
+    document.querySelector('button[name="Sair da conta"]').addEventListener('click', () => {
+      document.getElementById('modal-logout').style.display = 'block';
+    });
+    document.querySelector('#modal-logout button[name="Sim"]').addEventListener('click', () => {
+      window.location.href = '/login.html';
+    });
+    document.querySelector('#modal-logout button[name="Não"]').addEventListener('click', () => {
+      document.getElementById('modal-logout').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

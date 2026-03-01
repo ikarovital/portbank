@@ -16,6 +16,8 @@ export default defineConfig({
   testDir: bddConfig,
   timeout: 120000,
   fullyParallel: true,
+  /* Em CI usa mock local; fora usa site real */
+  baseURL: process.env.CI ? 'http://localhost:3000' : undefined,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -40,11 +42,13 @@ export default defineConfig({
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  /* Em CI sobe o mock do Porto Bank para os testes não dependerem do site real */
+  webServer: process.env.CI
+    ? {
+        command: 'npx serve tests/fixtures/mock-porto-bank -p 3000',
+        url: 'http://localhost:3000',
+        reuseExistingServer: false,
+      }
+    : undefined,
 });
 

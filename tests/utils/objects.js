@@ -4,15 +4,18 @@
  * Em CI (GitHub Actions) usa mock local para não depender do site real.
  */
 
+/** Em CI usa mock em localhost; fora usa site real. */
+const MOCK_BASE = 'http://localhost:3000';
+
 /** @param {import('@playwright/test').Page} page */
 export function urlBank(page) {
-  if (process.env.CI) return '/';
+  if (process.env.CI) return `${MOCK_BASE}/`;
   return 'https://www.portoseguro.com.br/bank';
 }
 
 /** URL da home do cliente (após login). Em CI usa mock. */
 export const urlHomeCliente = process.env.CI
-  ? '/home-cliente.html'
+  ? `${MOCK_BASE}/home-cliente.html`
   : 'https://cliente.portoseguro.com.br/home';
 
 /** @param {import('@playwright/test').Page} page */

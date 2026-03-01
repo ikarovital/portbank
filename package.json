@@ -1,0 +1,36 @@
+{
+  "name": "porto-bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "bddgen && playwright test --project=chromium",
+    "test:e2e": "bddgen && playwright test --project=chromium",
+    "test:e2e:fresh": "npm run clean:allure && bddgen && playwright test --project=chromium",
+    "test:e2e:chromium": "bddgen && playwright test --project=chromium",
+    "test:e2e:firefox": "bddgen && playwright test --project=firefox",
+    "test:e2e:webkit": "bddgen && playwright test --project=webkit",
+    "test:spec:chromium": "playwright test --config=playwright.specs.config.js --project=chromium",
+    "test:spec:firefox": "playwright test --config=playwright.specs.config.js --project=firefox",
+    "test:spec:webkit": "playwright test --config=playwright.specs.config.js --project=webkit",
+    "test:bdd": "bddgen && playwright test --project=chromium",
+    "test:spec": "playwright test --config=playwright.specs.config.js --project=chromium",
+    "test:bdd:fresh": "npm run clean:allure && bddgen && playwright test --project=chromium",
+    "test:spec:fresh": "npm run clean:allure && playwright test --config=playwright.specs.config.js --project=chromium",
+    "clean:allure": "node scripts/clean-allure.js",
+    "report:allure": "npx allure-commandline generate allure-results -o allure-report --clean && npx allure-commandline open allure-report",
+    "report:allure:generate": "npx allure-commandline generate allure-results -o allure-report --clean",
+    "e2e:allure": "npm run test:e2e && npm run report:allure"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.3",
+    "allure-commandline": "^2.37.0",
+    "allure-playwright": "^3.5.0",
+    "playwright-bdd": "^8.4.2"
+  }
+}

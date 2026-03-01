@@ -1,0 +1,30 @@
+---
+description: Padrão de análise de testes com BDD, premissa e objeto
+globs: **/*.feature,**/*.spec.*,**/test*/**/*,**/*test*
+alwaysApply: false
+---
+
+# Análise de Testes (BDD + Premissa + Objeto)
+
+Ao elaborar ou revisar cenários de teste, seguir esta estrutura:
+
+## Objeto
+- Deixar explícito **o que** está sendo testado: módulo, feature, fluxo ou artefato.
+
+## Premissa
+- **Contexto**: ambiente, dados/estado inicial, regras de negócio aplicáveis.
+- **Dependências**: APIs, usuários, permissões, dados de teste.
+- **Escopo**: o que está incluído e excluído dos testes.
+
+## BDD
+- Cenários em **Given / When / Then** (Gherkin quando aplicável).
+- Incluir cenário feliz, exceções e casos de borda.
+- Critérios de aceite claros e verificáveis.
+
+Exemplo de cenário:
+```gherkin
+Cenário: [título]
+  Dado que [contexto/premissa]
+  Quando [ação]
+  Então [resultado esperado]
+```

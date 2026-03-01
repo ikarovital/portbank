@@ -1,0 +1,46 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente e credenciais (nunca versionar)
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+playwright/.auth/
+blob-report/
+test-results/
+tests/test-results/
+
+# Screenshots e vídeos gerados pelos testes
+test-results/screenshots/
+
+# BDD gerado (gerado pelo bddgen; opcional versionar — aqui ignorado)
+tests/.features-gen/
+
+# Allure
+allure-results/
+allure-report/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build / dist (se houver)
+dist/
+build/
